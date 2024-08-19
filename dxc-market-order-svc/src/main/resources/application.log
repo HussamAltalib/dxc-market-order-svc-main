@@ -1,0 +1,61 @@
+2023-10-16 09:24:24.796 [main] INFO  c.d.o.OrderServiceApplication - Starting OrderServiceApplication using Java 11.0.20 on SA-PF383QJG with PID 39720 (C:\Users\haltalib\dxc-market-order-svc\target\classes started by haltalib in C:\Users\haltalib\dxc-market-order-svc)
+2023-10-16 09:24:24.796 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.5.Final
+2023-10-16 09:24:24.802 [main] INFO  c.d.o.OrderServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2023-10-16 09:24:25.864 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-16 09:24:25.977 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 94 ms. Found 2 JPA repository interfaces.
+2023-10-16 09:24:28.402 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-10-16 09:24:28.415 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-10-16 09:24:28.419 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-10-16 09:24:28.420 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.80]
+2023-10-16 09:24:28.659 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-10-16 09:24:28.660 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3783 ms
+2023-10-16 09:24:28.885 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-16 09:24:28.961 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-16 09:24:29.199 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-16 09:24:29.337 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-16 09:24:29.854 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-16 09:24:29.876 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2023-10-16 09:24:30.340 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.dxc.orderservice.models.OrderItemCompositeKey
+2023-10-16 09:24:30.340 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.dxc.orderservice.models.OrderItemCompositeKey
+2023-10-16 09:24:30.673 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-16 09:24:30.685 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-16 09:24:31.095 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-16 09:24:31.478 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-10-16 09:24:31.504 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-10-16 09:24:31.513 [main] INFO  c.d.o.OrderServiceApplication - Started OrderServiceApplication in 7.385 seconds (JVM running for 8.473)
+2023-10-16 09:24:31.685 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-16 09:24:31.685 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-10-16 09:24:31.686 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2023-10-16 09:24:31.789 [http-nio-8080-exec-1] INFO  c.d.o.util.GlobalExceptionHandler - No Order with this ID
+2023-10-16 09:24:46.752 [http-nio-8080-exec-3] INFO  c.d.o.util.GlobalExceptionHandler - No Order with this ID
+2023-10-16 09:27:18.831 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-16 09:27:18.902 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-16 09:27:18.971 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-16 09:27:27.478 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.5.Final
+2023-10-16 09:27:27.484 [main] INFO  c.d.o.OrderServiceApplication - Starting OrderServiceApplication using Java 11.0.20 on SA-PF383QJG with PID 20612 (C:\Users\haltalib\dxc-market-order-svc\target\classes started by haltalib in C:\Users\haltalib\dxc-market-order-svc)
+2023-10-16 09:27:27.485 [main] INFO  c.d.o.OrderServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2023-10-16 09:27:28.451 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-16 09:27:28.554 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 88 ms. Found 2 JPA repository interfaces.
+2023-10-16 09:27:30.287 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-10-16 09:27:30.297 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-10-16 09:27:30.300 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-10-16 09:27:30.300 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.80]
+2023-10-16 09:27:30.737 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-10-16 09:27:30.738 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3192 ms
+2023-10-16 09:27:30.912 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-16 09:27:30.979 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-16 09:27:31.247 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-16 09:27:31.442 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-16 09:27:32.015 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-16 09:27:32.050 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2023-10-16 09:27:32.539 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.dxc.orderservice.models.OrderItemCompositeKey
+2023-10-16 09:27:32.539 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.dxc.orderservice.models.OrderItemCompositeKey
+2023-10-16 09:27:32.996 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-16 09:27:33.013 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-16 09:27:33.612 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-16 09:27:34.076 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-10-16 09:27:34.107 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-10-16 09:27:34.122 [main] INFO  c.d.o.OrderServiceApplication - Started OrderServiceApplication in 7.185 seconds (JVM running for 8.365)
+2023-10-16 09:29:54.870 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-16 09:29:54.874 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-16 09:29:54.892 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

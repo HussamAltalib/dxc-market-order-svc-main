@@ -1,0 +1,309 @@
+openapi: 3.0.3
+info:
+  title: DXC Market API
+  description: |
+    The DXC Market Management System is a project that provides a platform for managing customers, products, orders, refunds, and complaints. It offers a set of RESTful services to perform various operations on these entities.
+  version: 1.0.0
+tags:
+  - name: Orders
+    description: orders operations
+components:
+  schemas:
+    GeneralError:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+    OrderItem:
+      type: object
+      properties:
+        product_id:
+          type: integer
+        product_name:
+          type: string
+        quantity:
+          type: integer
+    Order:
+      type: object
+      properties:
+        id:
+          type: integer
+        customer_id:
+          type: integer
+        status:
+          type: string
+          enum:
+            - PENDING
+            - COMPLETED
+        total_amount:
+          type: integer
+        created_at:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderItem'
+    OrderList:
+      type: object
+      properties:
+        orders:
+          type: array
+          items:
+            $ref: '#/components/schemas/Order'
+    CustomerAndItems:
+      type: object
+      properties:
+        customer_id:
+          type: integer
+        order:
+          type: array
+          items:
+            type: object
+            properties:
+              product_id:
+                type: integer
+              quantity:
+                type: integer
+paths:
+  /customers/{cid}/orders:
+    get:
+      tags:
+        - Orders
+      summary: List all orders for a customer
+      parameters:
+        - name: cid
+          in: path
+          description: The customer ID to retrieve orders for
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - type: object
+                    properties:
+                      status:
+                        type: string
+                  - type: object
+                    properties:
+                        data:
+                          $ref: '#/components/schemas/OrderList'
+        '404':
+          description: Invalid customer ID (cid)
+          content:
+            application/json:
+              schema:
+                 allOf:
+                  - type: object
+                    properties:
+                      status:
+                        type: string
+                  - type: object
+                    properties:
+                        data:
+                          $ref: '#/components/schemas/GeneralError'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                allOf:
+                 - type: object
+                   properties:
+                    status:
+                      type: string
+                 -  type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/GeneralError'
+  /customers/{cid}/orders/{oid}:
+    get:
+      tags:
+        - Orders
+      summary: Get a specific order for a customer
+      parameters:
+        - name: cid
+          in: path
+          description: The customer ID to retrieve the order for
+          required: true
+          schema:
+            type: integer
+        - name: oid
+          in: path
+          description: The order ID for the order
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                allOf:
+                - type: object
+                  properties:
+                    status:
+                      type: string
+                - type: object
+                  properties:
+                      data:
+                        $ref: '#/components/schemas/Order'
+                
+        '404':
+          description: Invalid customer ID (cid) or order ID (oid)
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - type: object
+                    properties:
+                      status:
+                        type: string
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/GeneralError'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - type: object
+                    properties:
+                      status:
+                        type: string
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/GeneralError'
+  /orders/{oid}:
+    get:
+      tags:
+        - Orders
+      summary: Get order by ID
+      parameters:
+        - name: oid
+          in: path
+          description: The order ID for the order
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - type: object
+                    properties:
+                      status:
+                        type: string
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/Order'
+        '404':
+          description: Invalid order ID (oid)
+          content:
+            application/json:
+              schema:
+               allOf:
+                  - type: object
+                    properties:
+                      status:
+                        type: string
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/GeneralError'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+               allOf:
+                - type: object
+                  properties:
+                    status:
+                      type: string
+                - type: object
+                  properties:
+                    data:
+                      $ref: '#/components/schemas/GeneralError'
+  /orders:
+    post:
+      tags:
+        - Orders
+      summary: Create a new order
+      requestBody:
+        description: Creates a new order for a specific customer
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerAndItems'
+      responses:
+        '201':
+          description: Order successfully created
+          content:
+            application/json:
+              schema:
+               allOf:
+                - type: object
+                  properties:
+                    status:
+                      type: string
+                - type: object
+                  properties:
+                    data:
+                      $ref: '#/components/schemas/Order'
+        '400':
+          description: Missing or malformed properties in request body.
+          content:
+            application/json:
+              schema:
+               allOf:
+                - type: object
+                  properties:
+                    status:
+                      type: string
+                - type: object
+                  properties:
+                    data:
+                     $ref: '#/components/schemas/GeneralError'
+        '404':
+          description: Invalid customer ID (cid) or invalid product id in request body
+          content:
+            application/json:
+              schema:
+               allOf:
+                - type: object
+                  properties:
+                    status:
+                      type: string
+                - type: object
+                  properties:
+                    data:
+                      $ref: '#/components/schemas/GeneralError'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+               allOf:
+                - type: object
+                  properties:
+                    status:
+                      type: string
+                - type: object
+                  properties:
+                    data:
+                      $ref: '#/components/schemas/GeneralError'
